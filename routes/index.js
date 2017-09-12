@@ -17,21 +17,24 @@ router.get('/favicon.ico', function(req, res) {
 router.get('/:date', function(req, res) {
   const date = req.params.date;
   const parsed = Date.parse(date);
-  if (!isNaN(parsed)) {
+  if (!isNaN(parsed) && !moment.unix(date).isValid()) {
     res.send({
-    unix: parsed,
-    natural: date
-  });
-    console.log(isNaN(parsed));
-    return;
-  }
+      unix: parsed,
+      natural: date
+    });
 
-  res.send({
+    return;
+  } else if (!isNaN(parsed) && !moment.unix(date).isValid()) {
+    res.send({
+      unix: parsed,
+      natural: date
+    });
+  } else {
+    res.send({
       unix: +date,
       natural: moment.unix(date).format("MMMM DD, YYYY")
     });
-
-  console.log(isNaN(parsed));
-})
+  }
+});
 
 module.exports = router;
