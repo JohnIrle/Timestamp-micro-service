@@ -4,7 +4,11 @@
   "description": "Sends a JSON object with unix and natural language dates. Accepts unix and natural language parameters.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "ts-node-dev index.ts",
+    "test": "jest --watchAll --no-cache",
+    "test:nowatch": "jest"
   },
   "dependencies": {
     "@types/express": "^4.17.13",
