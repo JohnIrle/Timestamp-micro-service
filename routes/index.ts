@@ -6,15 +6,15 @@ import moment from "moment";
 moment().format();
 moment().locale("LLL");
 
-router.get("/", function (req, res) {
+router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/index.html"));
 });
 
-router.get("/favicon.ico", function (req, res) {
+router.get("/favicon.ico", (req, res) => {
   res.status(204);
 });
 
-router.get("/:date", function (req, res) {
+router.get("/:date", (req, res) => {
   const date = req.params.date;
   const parsed = Date.parse(date);
   if (!isNaN(parsed) && !moment.unix(parseInt(date)).isValid()) {
