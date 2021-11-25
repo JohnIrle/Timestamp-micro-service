@@ -3,9 +3,6 @@ const router = express.Router();
 import path from "path";
 import moment from "moment";
 
-moment().format();
-moment().locale("LLL");
-
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/index.html"));
 });
