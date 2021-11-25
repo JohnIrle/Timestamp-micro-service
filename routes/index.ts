@@ -17,8 +17,6 @@ router.get("/favicon.ico", (req, res) => {
 router.get("/:date", (req, res) => {
   const date = req.params.date;
   const parsed = Date.parse(date) / 1000;
-  console.log("date", date);
-  console.log("parsed", parsed);
   if (!isNaN(parsed) && !moment.unix(parseInt(date)).isValid()) {
     res.send({
       unix: parsed,
