@@ -5,16 +5,6 @@ it("returns a 200 on index route", async () => {
   return request(app).get("/").expect(200);
 });
 
-it("matches snapshot", async () => {
-  const response = await request(app).get("/December%2015,%202015");
-  expect(response.body).toMatchInlineSnapshot(`
-Object {
-  "natural": "December 15, 2015",
-  "unix": 1450159200000,
-}
-`);
-});
-
 it("returns the correct response with natural date", async () => {
   const response = await request(app).get("/December%2015,%202015");
   expect(response.body).toEqual({
