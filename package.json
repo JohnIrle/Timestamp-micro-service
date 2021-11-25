@@ -1,6 +1,6 @@
 {
   "name": "timestamp-micro-service",
-  "version": "0.0.1",
+  "version": "0.2.0",
   "description": "Sends a JSON object with unix and natural language dates. Accepts unix and natural language parameters.",
   "main": "server.js",
   "scripts": {
