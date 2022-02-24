@@ -3,9 +3,6 @@ const router = express.Router();
 import path from "path";
 import moment from "moment";
 
-moment().format();
-moment().locale("LLL");
-
 router.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../views/index.html"));
 });
@@ -15,7 +12,7 @@ router.get("/favicon.ico", (req, res) => {
 });
 
 router.get("/:date", (req, res) => {
-  const date = req.params.date;
+  const { date } = req.params;
   const parsed = Date.parse(date) / 1000;
   if (!isNaN(parsed) && !moment.unix(parseInt(date)).isValid()) {
     res.send({
