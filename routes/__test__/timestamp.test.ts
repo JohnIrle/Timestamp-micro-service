@@ -8,15 +8,15 @@ it("returns a 200 on index route", async () => {
 it("returns the correct response with natural date", async () => {
   const response = await request(app).get("/December%2015,%202015");
   expect(response.body).toEqual({
-    unix: 1450159200,
+    unix: 1450137600,
     natural: "December 15, 2015",
   });
 });
 
 it("returns the correct response with a unix date", async () => {
-  const response = await request(app).get("/1450159200");
+  const response = await request(app).get("/1450137600");
   expect(response.body).toEqual({
-    unix: 1450159200,
+    unix: 1450137600,
     natural: "December 15, 2015",
   });
 });
