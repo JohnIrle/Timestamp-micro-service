@@ -13,23 +13,22 @@ router.get("/favicon.ico", (req, res) => {
 
 router.get("/:date", (req, res) => {
   const { date } = req.params;
-  const parsed = Date.parse(date) / 1000;
-  if (!isNaN(parsed) && !moment.unix(parseInt(date)).isValid()) {
-    res.send({
-      unix: parsed,
-      natural: date,
-    });
 
-    return;
-  } else if (!isNaN(parsed) && !moment.unix(parseInt(date)).isValid()) {
+  // Parse date assuming 12 AM UTC
+  const parsedDate = Date.parse(`${date} 00:00:00Z`) / 1000;
+
+  // Check if parsedDate is valid number and not valid unix.
+  const naturalDate = !isNaN(parsedDate) && !moment.unix(parseInt(date)).isValid()
+
+  if (naturalDate) {
     res.send({
-      unix: parsed,
+      unix: parsedDate,
       natural: date,
     });
   } else {
     res.send({
       unix: +date,
-      natural: moment.unix(parseInt(date)).format("MMMM DD, YYYY"),
+      natural: moment.unix(parseInt(date)).utc().format("MMMM DD, YYYY"),  // Parse unix date and make sure UTC is honored.
     });
   }
 });
