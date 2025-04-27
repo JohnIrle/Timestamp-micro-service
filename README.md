@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2019 John Irle
+
+SPDX-License-Identifier: MIT
+-->
+
 # Timestamp Micro-service
 An Express app that returns a JSON object with unix and natural language dates when given a url parameter of either unix or natural language.
 

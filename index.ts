@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2019 John Irle
+//
+// SPDX-License-Identifier: MIT
+
 import { app } from "./app";
 const PORT = 5000;
 

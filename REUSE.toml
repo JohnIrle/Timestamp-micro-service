@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2019 John Irle
+#
+# SPDX-License-Identifier: MIT
+
+version = 1
+
+[[annotations]]
+path = "*.json"
+SPDX-FileCopyrightText = "2019 John Irle"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = ".nvmrc"
+SPDX-FileCopyrightText = "2019 John Irle"
+SPDX-License-Identifier = "MIT"
